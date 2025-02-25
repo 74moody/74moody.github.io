@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GraphQL</title>
+    <link rel="icon" type="image/x-icon" href="/assets/GraphQL-logo.png">
+    <script src="./api/jwt.js" ></script>
+    <script src="./api/query.js" ></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+
+</head>
+<body>
+    <div class="welcome-message" id="welcomeMessage"></div>
+    <button id="logoutButton" class="logout-button">Logout</button>
+    <div id="particles-js"></div>
+
+    <div class="dash-container">
+    <!-- Output for user data -->
+    <div id="topleft">
+        <div id="userData">
+        <h2 class="cardTitle">User Data</h2>
+            <div id="#username"></div>
+            <div id="#FN"></div>
+            <div id="#LN"></div>
+            <div id="#email"></div>
+    </div>
+    </div>
+    <div id="topright">
+        <!-- Output for progress data -->
+        <div id="progressDataOutput">
+            <h2 class="cardTitle">My Progress</h2>
+            <div id="progressCard" class="progress-card">
+              <!-- Graded progress content will go here -->
+            </div>
+            <div class="navigation-buttons">
+              <button id="prevButton" onclick="showPreviousProgress()">Previous</button>
+              <button id="nextButton" onclick="showNextProgress()">Next</button>
+            </div>
+          </div>
+
+    </div>
+    <div id="bottomleft">  
+    <div id="AuditsAndRatio">
+        <h2 class="cardTitle">Audit Ratio</h2>
+      
+        <!-- Circle Graph for Total Up vs Total Down -->
+        <div class="graph-container">
+          <svg id="totalUpDownGraph" width="200" height="200"></svg>
+          <p id="totalUpText"></p>
+          <p id="totalDownText"></p>
+        </div>
+      
+        <!-- Audit Ratio Display -->
+        <p id="auditRatioText"></p>
+      
+        <!-- Dynamic Message -->
+        <p id="auditRatioMessage"></p>
+      </div>
+    </div>
+    <div id="bottomright">
+    <!-- Output for audits data -->
+    <div id="SkillsOutput">
+        <h2 class="cardTitle">User Skills</h2>
+        <svg id="skillsGraph" class="bargraphsvg" height="400"></svg>
+    </div>
+</div>
+</div>
+</div>
+
+    <div class="login-box">
+        <h2>Graphql Login</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <div id="loginError" class="error"> Incorrect username or password.</div>
+        <button id="loginButton">Login</button>
+    </div>
+
+    <script>
+        console.log(login)
+        // Attach the login button's click event to trigger login
+        document.getElementById('loginButton').addEventListener('click', function() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            login(username, password);  // Calling the login function from jwt.js
+        });
+    </script>
+
+    <script>
+        particlesJS.load('particles-js', 'particles.json', function() {
+            console.log('particles.json loaded');
+        });
+    </script>
+
+    <script src="js/particles.min.js"></script>
+
+    <script>
+    document.getElementById('logoutButton').addEventListener('click', logout);
+</script>
+
+    
+</body>
+</html>
+
